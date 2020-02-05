@@ -1,0 +1,6 @@
+<div *ngFor="let quest of dailyQuests">
+  <h3>{{quest.name}}</h3>
+  <ul>
+    <li *ngFor="let step of quest.steps">{{step}}</li>
+  </ul>
+</div>
