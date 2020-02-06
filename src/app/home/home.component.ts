@@ -13,11 +13,12 @@ export class HomeComponent implements OnInit {
   private quests = Quests.quests
   private dailyQuests = []
 
+  private xp = 0
+
   constructor() {}
 
   ngOnInit() {
     this.dailyQuests = this.pickDailyQuests()
-    console.log(this.dailyQuests)
   }
 
   // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
@@ -37,6 +38,9 @@ export class HomeComponent implements OnInit {
   // Validates a quest from the daily quests
   validateQuest(index)
   {
+    this.xp += this.dailyQuests[index].xp
+    console.log(this.xp)
+
     this.removeQuest(index)
   }
 

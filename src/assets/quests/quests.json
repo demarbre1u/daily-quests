@@ -4,22 +4,26 @@
         {
             "id": 1,
             "name": "Quest 1",
-            "description": "description 1"
+            "description": "description 1", 
+            "xp": 3
         }, 
         {
             "id": 2,
             "name": "Quest 2",
-            "description": "description 2"
+            "description": "description 2",
+            "xp": 4
         },
         {
             "id": 3,
             "name": "Quest 3",
-            "description": "description 3"
+            "description": "description 3",
+            "xp": 5
         },
         {
             "id": 4,
             "name": "Quest 4",
-            "description": "description 4"
+            "description": "description 4",
+            "xp": 10
         }
     ]
 }
