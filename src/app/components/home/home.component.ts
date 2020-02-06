@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { XpService } from '../service/xp/xp.service.js';
+import { XpService } from '../../service/xp/xp.service.js';
 
-import * as Quests from './../../assets/data/quests.json';
+import * as Quests from '../../../assets/data/quests.json';
 
 @Component({
   selector: 'app-home',
