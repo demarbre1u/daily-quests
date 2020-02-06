@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { XpService } from '../../service/xp/xp.service.js';
-
-import * as Quests from '../../../assets/data/quests.json';
+import { QuestsService } from 'src/app/service/quests/quests.service.js';
 
 @Component({
   selector: 'app-home',
@@ -10,28 +9,12 @@ import * as Quests from '../../../assets/data/quests.json';
 })
 export class HomeComponent implements OnInit {
 
-  public static DAILY_QUEST_NUMBER = 3
-  private quests = Quests.quests
   private dailyQuests = []
 
-  constructor(private xp: XpService) {}
+  constructor(private xp: XpService, private quests: QuestsService) {}
 
   ngOnInit() {
-    this.dailyQuests = this.pickDailyQuests()
-  }
-
-  // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
-  pickDailyQuests()
-  {
-    let pickedQuests = []
-    for(let i = 0; i < HomeComponent.DAILY_QUEST_NUMBER; i++)
-    {
-      let randomIndex = Math.round(Math.random() * (this.quests.length - 1))
-
-      pickedQuests.push(this.quests[randomIndex])
-    }
-    
-    return pickedQuests
+    this.dailyQuests = this.quests.getDailyQuests()
   }
 
   // Validates a quest from the daily quests
@@ -51,6 +34,8 @@ export class HomeComponent implements OnInit {
   // Removes a quest from the daily quests
   removeQuest(index)
   {
-    this.dailyQuests = this.dailyQuests.filter((e, i) => i !== index)
+    this.quests.removeQuest(index)
+
+    this.dailyQuests = this.quests.getDailyQuests()
   }
 }

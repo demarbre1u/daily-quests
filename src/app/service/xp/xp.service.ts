@@ -39,6 +39,7 @@ export class XpService {
     this.calculateLevel()
   }
 
+  // Returns all the data about the current player's level
   getCurrentLevelData()
   {
     let currentXP = this.getXP()
