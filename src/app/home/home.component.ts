@@ -33,4 +33,23 @@ export class HomeComponent implements OnInit {
     
     return pickedQuests
   }
+
+  // Validates a quest from the daily quests
+  validateQuest(index)
+  {
+    this.removeQuest(index)
+  }
+
+  // Removes a quest from the daily quests
+  cancelQuest(index)
+  {
+    this.removeQuest(index)
+  }
+
+  removeQuest(index)
+  {
+    this.dailyQuests = this.dailyQuests.filter((e, i) => i !== index)
+
+    console.log(index)
+  }
 }
