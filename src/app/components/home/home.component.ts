@@ -38,4 +38,10 @@ export class HomeComponent implements OnInit {
 
     this.dailyQuests = this.quests.getDailyQuests()
   }
+
+  reloadDailyQuests()
+  {
+    this.quests.pickDailyQuests()
+    this.dailyQuests = this.quests.getDailyQuests()
+  }
 }

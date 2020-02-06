@@ -9,11 +9,8 @@ export class QuestsService {
 
   public static DAILY_QUEST_NUMBER = 3
   private quests = Quests.quests
-  private dailyQuests = []
 
-  constructor() {
-    this.dailyQuests = this.pickDailyQuests()
-  }
+  constructor() { }
 
   // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
   pickDailyQuests()
@@ -26,17 +23,28 @@ export class QuestsService {
       pickedQuests.push(this.quests[randomIndex])
     }
     
-    return pickedQuests
+    this.setDailyQuest(pickedQuests)
   }
 
   getDailyQuests()
   {
-    return this.dailyQuests
+    let dailyQuests = JSON.parse(localStorage.getItem('dailyQuests'))
+
+    return dailyQuests
+  }
+
+  setDailyQuest(quests)
+  {
+    localStorage.setItem('dailyQuests', JSON.stringify(quests))
   }
 
   // Removes a quest from the daily quests
   removeQuest(index)
   {
-    this.dailyQuests = this.dailyQuests.filter((e, i) => i !== index)
+    let dailyQuests = this.getDailyQuests()
+
+    dailyQuests = dailyQuests.filter((e, i) => i !== index)
+
+    this.setDailyQuest(dailyQuests)
   }
 }
