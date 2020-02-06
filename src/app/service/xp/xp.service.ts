@@ -38,4 +38,19 @@ export class XpService {
 
     this.calculateLevel()
   }
+
+  getCurrentLevelData()
+  {
+    let currentXP = this.getXP()
+
+    let xpRange = this.xpTable.filter(e => currentXP >= e.from && currentXP < e.to)[0]
+
+    let xpNeeded = xpRange.to - xpRange.from
+
+    currentXP -= xpRange.from
+
+    let percentage = Math.round(currentXP / xpNeeded * 100)
+
+    return {currentLvl: this.currentLvl, currentXP, xpNeeded, percentage}
+  }
 }

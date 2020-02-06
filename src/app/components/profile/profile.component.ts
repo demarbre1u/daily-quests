@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { XpService } from 'src/app/service/xp/xp.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  private currentLevelData: {}
+
+  constructor(private xp: XpService) { }
 
   ngOnInit() {
+    this.currentLevelData = this.xp.getCurrentLevelData()
   }
-
 }
