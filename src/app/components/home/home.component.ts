@@ -39,8 +39,6 @@ export class HomeComponent implements OnInit {
   {
     this.xp.addXP(this.dailyQuests[index].xp)
 
-    console.log(this.xp.getXP())
-
     this.removeQuest(index)
   }
 
