@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { XpService } from '../service/xp/xp.service.js';
 
-import * as Quests from './../../assets/quests/quests.json';
+import * as Quests from './../../assets/data/quests.json';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,7 @@ export class HomeComponent implements OnInit {
   private quests = Quests.quests
   private dailyQuests = []
 
-  private xp = 0
-
-  constructor() {}
+  constructor(private xp: XpService) {}
 
   ngOnInit() {
     this.dailyQuests = this.pickDailyQuests()
@@ -38,22 +37,22 @@ export class HomeComponent implements OnInit {
   // Validates a quest from the daily quests
   validateQuest(index)
   {
-    this.xp += this.dailyQuests[index].xp
-    console.log(this.xp)
+    this.xp.addXP(this.dailyQuests[index].xp)
+
+    console.log(this.xp.getXP())
 
     this.removeQuest(index)
   }
 
-  // Removes a quest from the daily quests
+  // Cancel a quest from the daily quests
   cancelQuest(index)
   {
     this.removeQuest(index)
   }
 
+  // Removes a quest from the daily quests
   removeQuest(index)
   {
     this.dailyQuests = this.dailyQuests.filter((e, i) => i !== index)
-
-    console.log(index)
   }
 }

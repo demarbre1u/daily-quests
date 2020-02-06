@@ -1,0 +1,17 @@
+{
+    "xp_table": [
+        { "level": 1,     "from": 0,      "to": 10 },
+        { "level": 2,     "from": 10,     "to": 25 },
+        { "level": 3,     "from": 25,     "to": 45 },
+        { "level": 4,     "from": 45,     "to": 70 },
+        { "level": 5,     "from": 70,     "to": 100 },
+        { "level": 6,     "from": 100,    "to": 135 },
+        { "level": 7,     "from": 135,    "to": 175 },
+        { "level": 8,     "from": 175,    "to": 220 },
+        { "level": 9,     "from": 220,    "to": 270 },
+        { "level": 10,    "from": 270,    "to": 325 },
+
+        { "level": 11,    "from": 325,    "to": 99999999 }
+    ]
+}
+
