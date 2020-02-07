@@ -15,11 +15,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
-    // Checks if daily quests should be updated every minute
-    setInterval(() => {
-      if(this.quests.checkDailyUpdate())
-        this.dailyQuests = this.quests.getDailyQuests()
-    }, 1000 * 60)
+    // Listens to any change on the daily quests list in the Quest Service
+    this.quests.questsChanged$.subscribe(newQuests => {
+      this.dailyQuests = newQuests
+    })
 
     this.dailyQuests = this.quests.getDailyQuests()
   }
@@ -42,13 +41,10 @@ export class HomeComponent implements OnInit {
   removeQuest(index)
   {
     this.quests.removeQuest(index)
-
-    this.dailyQuests = this.quests.getDailyQuests()
   }
 
   reloadDailyQuests()
   {
     this.quests.pickDailyQuests()
-    this.dailyQuests = this.quests.getDailyQuests()
   }
 }

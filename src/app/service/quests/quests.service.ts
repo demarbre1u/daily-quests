@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject }    from 'rxjs';
 
 import * as Quests from '../../../assets/data/quests.json';
 
@@ -7,10 +8,19 @@ import * as Quests from '../../../assets/data/quests.json';
 })
 export class QuestsService {
 
+  private questsChangedSource = new Subject<Array<any>>()
+  questsChanged$ = this.questsChangedSource.asObservable()
+
   public static DAILY_QUEST_NUMBER = 3
   private quests = Quests.quests
 
-  constructor() {}
+  constructor() 
+  {
+    // Checks if daily quests should be updated every minute
+    setInterval(() => {
+      this.checkDailyUpdate()
+    }, 1000 * 60)
+  }
 
   // Checks if the daily quests should be updated
   checkDailyUpdate()
@@ -22,13 +32,9 @@ export class QuestsService {
     // Checks if last update was at least yesterday
     if(today.localeCompare(lastUpdate) === 1)
     {
-      this.pickDailyQuests()
       this.setLastUpdate(today)
-      
-      return true
+      this.pickDailyQuests()
     }
-
-    return false
   }
 
   // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
@@ -55,6 +61,8 @@ export class QuestsService {
   setDailyQuest(quests)
   {
     localStorage.setItem('dailyQuests', JSON.stringify(quests))
+
+    this.questsChangedSource.next(quests)
   }
 
   // Removes a quest from the daily quests
