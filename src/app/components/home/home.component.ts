@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   constructor(private xp: XpService, private quests: QuestsService) {}
 
   ngOnInit() {
-
     // Listens to any change on the daily quests list in the Quest Service
     this.quests.questsChanged$.subscribe(newQuests => {
       this.dailyQuests = newQuests

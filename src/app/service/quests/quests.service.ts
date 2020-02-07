@@ -16,6 +16,8 @@ export class QuestsService {
 
   constructor() 
   {
+    this.checkDailyUpdate()
+
     // Checks if daily quests should be updated every minute
     setInterval(() => {
       this.checkDailyUpdate()
@@ -77,7 +79,9 @@ export class QuestsService {
 
   getLastUpdate()
   {
-    return JSON.parse(localStorage.getItem('last_update'))
+    let lastUpdate = JSON.parse(localStorage.getItem('last_update'))
+
+    return lastUpdate ? lastUpdate : '0000-00-00'
   }
 
   setLastUpdate(date)
