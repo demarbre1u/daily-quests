@@ -1,4 +1,6 @@
 import { Injectable, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+
 import * as xpTable from '../../../assets/data/xp_table.json';
 
 @Injectable({
@@ -6,22 +8,32 @@ import * as xpTable from '../../../assets/data/xp_table.json';
 })
 export class XpService {
 
+  private xpChangedSource = new Subject<any>()
+  xpChanged$ = this.xpChangedSource.asObservable()
+
   private xpTable = xpTable.xp_table
-  private currentLvl = 0
 
   constructor() 
   {
-    this.calculateLevel()
+    this.calculateLevelData()
   }
 
   // Calculates the current level of the player based on their total XP
-  calculateLevel()
+  calculateLevelData()
   {
     let currentXP = this.getXP()
 
-    let xpRange = this.xpTable.filter(e => currentXP >= e.from && currentXP < e.to)
+    let xpRange = this.xpTable.filter(e => currentXP >= e.from && currentXP < e.to)[0]
 
-    this.currentLvl = xpRange[0].level
+    let xpNeeded = xpRange.to - xpRange.from
+
+    let currentLvl = xpRange.level
+
+    currentXP -= xpRange.from
+
+    let percentage = Math.round(currentXP / xpNeeded * 100)
+
+    this.xpChangedSource.next({currentLvl, currentXP, xpNeeded, percentage})
   }
 
   getXP()
@@ -36,22 +48,6 @@ export class XpService {
 
     localStorage.setItem('xp', currentXP)
 
-    this.calculateLevel()
-  }
-
-  // Returns all the data about the current player's level
-  getCurrentLevelData()
-  {
-    let currentXP = this.getXP()
-
-    let xpRange = this.xpTable.filter(e => currentXP >= e.from && currentXP < e.to)[0]
-
-    let xpNeeded = xpRange.to - xpRange.from
-
-    currentXP -= xpRange.from
-
-    let percentage = Math.round(currentXP / xpNeeded * 100)
-
-    return {currentLvl: this.currentLvl, currentXP, xpNeeded, percentage}
+    this.calculateLevelData()
   }
 }

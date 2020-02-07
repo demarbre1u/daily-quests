@@ -13,6 +13,10 @@ export class ProfileComponent implements OnInit {
   constructor(private xp: XpService) { }
 
   ngOnInit() {
-    this.currentLevelData = this.xp.getCurrentLevelData()
+    this.xp.xpChanged$.subscribe(levelData => {
+      this.currentLevelData = levelData
+    })
+
+    this.xp.calculateLevelData()
   }
 }
