@@ -2,7 +2,7 @@
     background-color: #333333;
     color: #ffffff;
     box-shadow: 5px 5px 10px darkgrey;
-
+    padding: 0px 10px;
 
     height: var(--navbar-height);
     
@@ -29,4 +29,5 @@
 
 #navbar #nav-btns a.active {
     color: #e1f4f3;
+    border-bottom: 2px solid #e1f4f3;
 }
