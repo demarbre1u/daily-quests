@@ -1,28 +1,34 @@
 {
     "quests": [
         {
-            "id": 1,
             "name": "Daily exercise",
-            "description": "Do 30 push-ups", 
+            "description": "Do 25 push-ups", 
             "xp": 3
         }, 
         {
-            "id": 2,
+            "name": "Daily exercise",
+            "description": "Do 25 crunches", 
+            "xp": 3
+        }, 
+        {
+            "name": "Daily exercise",
+            "description": "Do 25 squats", 
+            "xp": 3
+        }, 
+        {
             "name": "The pen is mightiest",
             "description": "Write for 30 minutes",
-            "xp": 4
+            "xp": 3
         },
         {
-            "id": 3,
             "name": "Polish your wisdom",
             "description": "Read for 30 minutes",
-            "xp": 5
+            "xp": 3
         },
         {
-            "id": 4,
             "name": "Keep talking",
             "description": "Learn a language for 15 minutes",
-            "xp": 10
+            "xp": 3
         }
     ]
 }
