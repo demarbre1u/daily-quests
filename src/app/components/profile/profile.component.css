@@ -1,0 +1,41 @@
+#profile-wrapper {
+    height: calc(100vh - var(--navbar-height));
+
+    overflow-x: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#xp-infos > * {
+    margin: 5px;
+}
+
+#level {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#xp-bar {
+    position: relative;
+
+    width: 300px;
+    height: 20px;
+
+    border: 1px solid black;
+    border-radius: 32px;
+
+    overflow: hidden;
+}
+
+#xp-bar div {
+    height: 100%;
+    background-color: lightgreen;
+    border-radius: 32px;
+}
+
+#xp-numbers {
+    text-align: end;
+}

@@ -1,11 +1,14 @@
-<p>
-  Lv. {{ currentLevelData.currentLvl }}
-</p>
-
-<p>
-  {{ currentLevelData.currentXP }} / {{ currentLevelData.xpNeeded }} XP
-</p>
-
-<p>
-  {{ currentLevelData.percentage }}% towards Lv. {{ currentLevelData.currentLvl + 1 }}
-</p>
+<div id="profile-wrapper">
+  <div id="xp-infos">
+    <div id="level">
+      Lv. {{ currentLevelData.currentLvl }}
+    </div>
+    
+    <div id="xp-bar">
+      <div [style.width.%]="currentLevelData.percentage"></div>
+    </div>
+    <div id="xp-numbers">
+      {{ currentLevelData.currentXP }} / {{ currentLevelData.xpNeeded }} XP
+    </div>
+  </div>
+</div>
