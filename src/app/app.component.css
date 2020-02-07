@@ -1,0 +1,32 @@
+#navbar {
+    background-color: #333333;
+    color: #ffffff;
+    box-shadow: 5px 5px 10px darkgrey;
+
+
+    height: var(--navbar-height);
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#navbar #greeting {
+    padding: 15px;
+    font-size: 28px;
+}
+
+#navbar #nav-btns a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px;
+}
+
+#navbar #nav-btns a:visited, #navbar #nav-btns a:active, #navbar #nav-btns a:link {
+    color: #ffffff;
+}
+
+#navbar #nav-btns a.active {
+    color: #e1f4f3;
+}

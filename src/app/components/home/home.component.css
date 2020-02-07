@@ -1,0 +1,121 @@
+#quests-wrapper {
+    height: calc(100vh - var(--navbar-height));
+
+    overflow-x: auto;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#quests-wrapper .quest {
+    position: relative;
+    min-width: 300px;
+    margin: 20px;
+    padding: 10px;
+
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px darkgrey;
+
+    overflow: hidden;
+}
+
+#quests-wrapper .quest .quest-header {
+    font-size: 20px;
+    color: #ffffff;
+}
+
+#quests-wrapper .quest .quest-header:before {
+    content: '';
+    position: absolute;
+
+    left: -10px;
+    top: -50px;
+
+    height: 100px;
+    width: 400px;
+    background-color: #333333;
+    z-index: -1;
+    transform: rotate(-4deg);
+}
+
+#quests-wrapper .quest .quest-description {
+    color: #706c61;
+    text-align: center;
+
+    transform: rotate(-4deg);
+
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+#quests-wrapper .quest .quest-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#quests-wrapper .quest .quest-btns button {
+    mask: url('../../../assets/img/icons/tick.svg');
+
+    cursor: pointer;
+
+    width: 38px;
+    height: 38px;
+}
+
+#quests-wrapper .quest .quest-btns button.btn-validate {
+    mask: url('../../../assets/img/icons/tick.svg');
+}
+
+#quests-wrapper .quest .quest-btns button.btn-cancel {
+    mask: url('../../../assets/img/icons/cancel.svg');
+}
+
+#quests-wrapper .quest .quest-btns:before {
+    content: '';
+    position: absolute;
+
+    left: -10px;
+    bottom: -50px;
+
+    height: 100px;
+    width: 400px;
+    background-color: #333333;
+    z-index: -1;
+    transform: rotate(-4deg);
+}
+
+#reset-btn {
+    cursor: pointer;
+    outline: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: 5px 5px 10px darkgrey;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    width: 60px;
+    height: 60px;
+}
+
+#reset-btn #reset-icon  {
+    background-color: #706c61;
+    mask: url('../../../assets/img/icons/refresh.svg');
+
+    margin: 5px;
+
+    min-width: 40px;
+    min-height: 40px;
+}

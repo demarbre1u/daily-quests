@@ -1,8 +1,13 @@
-<div *ngFor="let quest of dailyQuests; let index = index">
-  <h3>{{quest.name}}</h3>
-  <p>{{quest.description}}</p>
-  <button (click)="validateQuest(index)">Validate</button>
-  <button (click)="cancelQuest(index)">Cancel</button>
+<div id="quests-wrapper">
+  <div class="quest" *ngFor="let quest of dailyQuests; let index = index">
+    <div class="quest-header">{{quest.name}}</div>
+
+    <div class="quest-description">{{quest.description}}</div>
+    
+    <div class="quest-btns">
+      <button class="btn-validate" (click)="validateQuest(index)"></button>
+    </div>
+  </div>
 </div>
 
-<button (click)="reloadDailyQuests()">Reset daily quests</button>
+<button id="reset-btn" (click)="reloadDailyQuests()"><div id="reset-icon"></div></button>

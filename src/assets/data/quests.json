@@ -2,26 +2,26 @@
     "quests": [
         {
             "id": 1,
-            "name": "Quest 1",
-            "description": "description 1", 
+            "name": "Daily exercise",
+            "description": "Do 30 push-ups", 
             "xp": 3
         }, 
         {
             "id": 2,
-            "name": "Quest 2",
-            "description": "description 2",
+            "name": "The pen is mightiest",
+            "description": "Write for 30 minutes",
             "xp": 4
         },
         {
             "id": 3,
-            "name": "Quest 3",
-            "description": "description 3",
+            "name": "Polish your wisdom",
+            "description": "Read for 30 minutes",
             "xp": 5
         },
         {
             "id": 4,
-            "name": "Quest 4",
-            "description": "description 4",
+            "name": "Keep talking",
+            "description": "Learn a language for 15 minutes",
             "xp": 10
         }
     ]
