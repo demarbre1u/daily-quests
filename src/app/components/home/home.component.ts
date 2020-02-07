@@ -14,6 +14,13 @@ export class HomeComponent implements OnInit {
   constructor(private xp: XpService, private quests: QuestsService) {}
 
   ngOnInit() {
+
+    // Checks if daily quests should be updated every minute
+    setInterval(() => {
+      if(this.quests.checkDailyUpdate())
+        this.dailyQuests = this.quests.getDailyQuests()
+    }, 1000 * 60)
+
     this.dailyQuests = this.quests.getDailyQuests()
   }
 
