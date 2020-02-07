@@ -1,2 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~normalize.css';
+
+@font-face {
+    font-family: 'Multi';
+    src:  url('./assets/fonts/Muli/Muli-VariableFont:wght.ttf') format('ttf'), 
+          url('./assets/fonts/Muli/Muli-Italic-VariableFont:wght.ttf') format('ttf');
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+}
