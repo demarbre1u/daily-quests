@@ -27,7 +27,7 @@ export class XpService {
 
   constructor() 
   {
-    this.calculateLevelData()
+    this.calculateData()
   }
 
   // Calculates the current level of the player based on their total XP
@@ -88,14 +88,13 @@ export class XpService {
     let xp = quest.xp
     let currentXP = this.getXP() + xp
     localStorage.setItem('xp', currentXP)
+    this.calculateLevelData()
 
     // We add the XP also in the given stat
     let type = quest.type
     let stats = this.getStats()
     stats[type] += xp
-
     localStorage.setItem('stats', JSON.stringify(stats))
-
-    this.calculateLevelData()
+    this.calculateStatsData()
   }
 }

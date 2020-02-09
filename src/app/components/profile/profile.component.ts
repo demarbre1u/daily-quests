@@ -22,6 +22,6 @@ export class ProfileComponent implements OnInit {
       this.currentStatsData = statsData
     })
 
-    this.xp.calculateLevelData()
+    this.xp.calculateData()
   }
 }
