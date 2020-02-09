@@ -3,32 +3,38 @@
         {
             "name": "Daily exercise",
             "description": "Do 25 push-ups", 
-            "xp": 3
+            "xp": 3, 
+            "type": "strength"
         }, 
         {
             "name": "Daily exercise",
             "description": "Do 25 crunches", 
-            "xp": 3
+            "xp": 3,
+            "type": "strength"
         }, 
         {
             "name": "Daily exercise",
             "description": "Do 25 squats", 
-            "xp": 3
+            "xp": 3,
+            "type": "strength"
         }, 
         {
             "name": "The pen is mightiest",
             "description": "Write for 30 minutes",
-            "xp": 3
+            "xp": 3, 
+            "type": "wisdom"
         },
         {
-            "name": "Polish your wisdom",
+            "name": "Knowledge is a weapon",
             "description": "Read for 30 minutes",
-            "xp": 3
+            "xp": 3, 
+            "type": "intelligence"
         },
         {
             "name": "Keep talking",
             "description": "Learn a language for 15 minutes",
-            "xp": 3
+            "xp": 3,
+            "type": "wisdom"
         }
     ]
 }

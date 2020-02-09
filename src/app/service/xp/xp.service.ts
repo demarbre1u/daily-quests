@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 
 import * as xpTable from '../../../assets/data/xp_table.json';
+import * as statsTable from '../../../assets/data/stats_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,11 @@ export class XpService {
   private xpChangedSource = new Subject<any>()
   xpChanged$ = this.xpChangedSource.asObservable()
 
+  private statsChangedSource = new Subject<any>()
+  statsChanged$ = this.statsChangedSource.asObservable()
+
   private xpTable = xpTable.xp_table
+  private statsTable = statsTable.stats_table
 
   constructor() 
   {
@@ -22,11 +27,8 @@ export class XpService {
   calculateLevelData()
   {
     let currentXP = this.getXP()
-
     let xpRange = this.xpTable.filter(e => currentXP >= e.from && currentXP < e.to)[0]
-
     let xpNeeded = xpRange.to - xpRange.from
-
     let currentLvl = xpRange.level
 
     currentXP -= xpRange.from
@@ -34,6 +36,23 @@ export class XpService {
     let percentage = Math.round(currentXP / xpNeeded * 100)
 
     this.xpChangedSource.next({currentLvl, currentXP, xpNeeded, percentage})
+
+
+    let currentStats = this.getStats()
+    let newStats = {}
+    for(let stats of Object.keys(currentStats))
+    {
+      let statsRange = this.statsTable.filter(e => currentStats[stats] >= e.from && currentStats[stats] < e.to)[0]
+      let statsNeeded = statsRange.to - statsRange.from
+      let currentStatsLevel = statsRange.level
+      let currentStatsXp = currentStats[stats] - statsRange.from
+      let statsPercentage = Math.round(currentStatsXp / statsNeeded * 100)
+
+      newStats[stats] = {currentStatsLevel, currentStatsXp, statsNeeded, statsPercentage}
+    }
+
+    this.statsChangedSource.next(newStats)
+    console.log(newStats)
   }
 
   getXP()
@@ -41,12 +60,25 @@ export class XpService {
     return JSON.parse(localStorage.getItem('xp'))
   }
 
-  // Add a given amount of XP to the total XP of the player
-  addXP(xp)
+  getStats()
   {
-    let currentXP = this.getXP() + xp
+    let stats = JSON.parse(localStorage.getItem('stats'))
 
+    return stats ? stats : {strengh: 0, intelligence: 0, wisdom: 0}
+  }
+
+  // Add a given amount of XP to the total XP of the player
+  addXP(quest)
+  {
+    let xp = quest.xp
+    let currentXP = this.getXP() + xp
     localStorage.setItem('xp', currentXP)
+
+    let type = quest.type
+    let stats = this.getStats()
+    stats[type] += xp
+
+    localStorage.setItem('stats', JSON.stringify(stats))
 
     this.calculateLevelData()
   }

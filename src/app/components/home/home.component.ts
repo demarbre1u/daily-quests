@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   // Validates a quest from the daily quests
   validateQuest(index)
   {
-    this.xp.addXP(this.dailyQuests[index].xp)
+    this.xp.addXP(this.dailyQuests[index])
 
     this.removeQuest(index)
   }
