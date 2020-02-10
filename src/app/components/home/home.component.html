@@ -1,10 +1,10 @@
 <div id="quests-wrapper">
   <div class="quest" *ngFor="let quest of dailyQuests; let index = index">
-    <div class="quest-header">{{quest.name}}</div>
+    <div class="quest-header {{ quest.type }}-quest">{{quest.name}}</div>
 
     <div class="quest-description">{{quest.description}}</div>
     
-    <div class="quest-btns">
+    <div class="quest-btns {{ quest.type }}-quest">
       <button class="btn-validate" (click)="validateQuest(index)"></button>
     </div>
   </div>

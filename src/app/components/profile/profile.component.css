@@ -94,3 +94,15 @@
     justify-content: end;
     align-items: flex-end;
 }
+
+.strength-stats div {
+    background-color: var(--strength-color);
+}
+
+.intelligence-stats div {
+    background-color: var(--intelligence-color);
+}
+
+.wisdom-stats div {
+    background-color: var(--wisdom-color);
+}

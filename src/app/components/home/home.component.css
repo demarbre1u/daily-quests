@@ -119,3 +119,15 @@
     min-width: 40px;
     min-height: 40px;
 }
+
+#quests-wrapper .quest .strength-quest:before {
+    background-color: var(--strength-color);
+}
+
+#quests-wrapper .quest .intelligence-quest:before {
+    background-color: var(--intelligence-color);
+}
+
+#quests-wrapper .quest .wisdom-quest:before {
+    background-color: var(--wisdom-color);
+}

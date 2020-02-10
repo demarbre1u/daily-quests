@@ -9,4 +9,9 @@ body {
 
 :root {
     --navbar-height: 60px;
+
+    /* Flat UI */
+    --strength-color: #1abc9c;
+    --intelligence-color: #e74c3c;
+    --wisdom-color: #9b59b6;
 }
