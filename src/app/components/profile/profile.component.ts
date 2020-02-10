@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
 
     this.xp.statsChanged$.subscribe(statsData => {
       this.currentStatsData = statsData
+
+      console.log(statsData)
     })
 
     this.xp.calculateData()

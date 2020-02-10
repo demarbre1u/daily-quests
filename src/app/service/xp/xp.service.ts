@@ -11,7 +11,7 @@ export class XpService {
 
   // The default stats if the player doesn't have any yet
   private defaultStatsObject = {
-    strengh: 0, 
+    strength: 0, 
     intelligence: 0, 
     wisdom: 0
   }

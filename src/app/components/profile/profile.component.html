@@ -1,6 +1,6 @@
 <div id="profile-wrapper">
   <div id="xp-infos">
-    <div id="level">
+    <div class="level">
       Lv. {{ currentLevelData.currentLvl }}
     </div>
     
@@ -10,5 +10,66 @@
     <div id="xp-numbers">
       {{ currentLevelData.currentXP }} / {{ currentLevelData.xpNeeded }} XP
     </div>
+  </div>
+
+  <div id="stats-wrapper">
+
+    <!-- Strength -->
+    <div class="stats-infos">
+      <div class="stats-level">
+        <div>
+          Strength
+        </div>
+        <div>
+          Lv. {{ currentStatsData.strength.currentStatsLevel }}
+        </div>
+      </div>
+      
+      <div class="stats-bar">
+        <div [style.width.%]="currentStatsData.strength.statsPercentage"></div>
+      </div>
+      <div class="stats-numbers">
+        {{ currentStatsData.strength.currentStatsXp }} / {{ currentStatsData.strength.statsNeeded }} XP
+      </div>
+    </div>
+
+    <!-- Intelligence -->
+    <div class="stats-infos">
+      <div class="stats-level">
+        <div>
+          Intelligence
+        </div>
+        <div>
+          Lv. {{ currentStatsData.intelligence.currentStatsLevel }}
+        </div>
+      </div>
+      
+      <div class="stats-bar">
+        <div [style.width.%]="currentStatsData.intelligence.statsPercentage"></div>
+      </div>
+      <div class="stats-numbers">
+        {{ currentStatsData.intelligence.currentStatsXp }} / {{ currentStatsData.intelligence.statsNeeded }} XP
+      </div>
+    </div>
+
+    <!-- Wisdom -->
+    <div class="stats-infos">
+      <div class="stats-level">
+        <div>
+          Wisdom
+        </div>
+        <div>
+          Lv. {{ currentStatsData.wisdom.currentStatsLevel }}
+        </div>
+      </div>
+      
+      <div class="stats-bar">
+        <div [style.width.%]="currentStatsData.wisdom.statsPercentage"></div>
+      </div>
+      <div class="stats-numbers">
+        {{ currentStatsData.wisdom.currentStatsXp }} / {{ currentStatsData.wisdom.statsNeeded }} XP
+      </div>
+    </div>
+
   </div>
 </div>
