@@ -2,21 +2,21 @@
     "quests": [
         {
             "id":               1,
-            "name":             "Daily exercise",
+            "name":             "Baby steps",
             "description":      "Do 25 push-ups", 
             "xp":               3, 
             "type":             "strength"
         }, 
         {
             "id":               2,
-            "name":             "Daily exercise",
+            "name":             "Baby steps",
             "description":      "Do 25 crunches", 
             "xp":               3,
             "type":             "strength"
         }, 
         {
             "id":               3,
-            "name":             "Daily exercise",
+            "name":             "Baby steps",
             "description":      "Do 25 squats", 
             "xp":               3,
             "type":             "strength"
@@ -48,15 +48,39 @@
             "description":      "Learn a language for 15 minutes",
             "xp":               3,
             "type":             "intelligence"
+        }, 
+        {
+            "id":               8,
+            "name":             "Getting serious",
+            "description":      "Do 50 push-ups", 
+            "xp":               10, 
+            "type":             "strength", 
+            "requirement":      40
+        }, 
+        {
+            "id":               9,
+            "name":             "Getting serious",
+            "description":      "Do 50 crunches", 
+            "xp":               10,
+            "type":             "strength",
+            "requirement":      40
+        }, 
+        {
+            "id":               10,
+            "name":             "Getting serious",
+            "description":      "Do 50 squats", 
+            "xp":               10,
+            "type":             "strength",
+            "requirement":      40
         }
     ], 
     "days": {
-        "monday":       [1], 
-        "tuesday":      [2], 
-        "wednesday":    [3], 
-        "thursday":     [1], 
-        "friday":       [2], 
-        "saturday":     [3], 
+        "monday":       [1, 8], 
+        "tuesday":      [2, 9], 
+        "wednesday":    [3, 10], 
+        "thursday":     [1, 8], 
+        "friday":       [2, 9], 
+        "saturday":     [3, 10], 
         "sunday":       [6],
 
         "always":       [4, 5, 6, 7]

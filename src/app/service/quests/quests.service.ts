@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs';
 
 import * as Quests from '../../../assets/data/quests.json';
+import { PlayerService } from '../player/player.service.js';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class QuestsService {
   private quests = Quests.quests
   private questsByDay = Quests.days
 
-  constructor() 
+  constructor(private player: PlayerService) 
   {
     this.checkDailyUpdate()
 
@@ -61,11 +62,21 @@ export class QuestsService {
   // Picks a random quest given a day
   pickQuest(day)
   {
-    let weekdayQuests = this.questsByDay[day]
-    let randomIndex = Math.round(Math.random() * (weekdayQuests.length - 1))
-    let questId = weekdayQuests[randomIndex]
-    let chosenQuest = this.quests.filter(e => e.id === questId)[0]
+    let chosenQuest
+    let requirementMet = false
+    while(!requirementMet)
+    {
+      let weekdayQuests = this.questsByDay[day]
+      let randomIndex = Math.round(Math.random() * (weekdayQuests.length - 1))
+      let questId = weekdayQuests[randomIndex]
+      chosenQuest = this.quests.filter(e => e.id === questId)[0]
+  
+      let requiredXP = chosenQuest.requirement ? chosenQuest.requirement : 0
+      let currentXP = this.player.getStats()[chosenQuest.type]
 
+      requirementMet = currentXP >= requiredXP
+    }
+    
     return chosenQuest
   }
 
