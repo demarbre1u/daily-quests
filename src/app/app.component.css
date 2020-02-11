@@ -31,3 +31,10 @@
     color: #e1f4f3;
     border-bottom: 2px solid #e1f4f3;
 }
+
+#username {
+    background-color: transparent;
+    color: #acf0ed;
+    border: none;
+    outline: none;
+}
