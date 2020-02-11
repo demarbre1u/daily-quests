@@ -1,6 +1,8 @@
 # DailyQuests
 
-## Introduction
+## Presentation
+
+### Introduction
 
 This project allows you to gamify your daily tasks and goals.
 
@@ -12,7 +14,7 @@ For exemple, a quest asking you to do push-ups will give you some Strength XP.
 
 Some quests can only appear on certain days, so you don't have to do your legs exercise every day of the week.
 
-## Planned features
+### Planned features
 
 There are still some planned features to help you organize your day : 
 
@@ -21,7 +23,7 @@ There are still some planned features to help you organize your day :
  - A stats screen to keep track of your achievments
  - The possibility to switch your theme / the language of the app to have an UI that fits you
 
-## How to add / remove quests
+### How to add / remove quests
 
 Quests can be added and removed by editing the following file : `src/assets/data/quests.json`
 
@@ -84,8 +86,17 @@ If you want a quest to always be available, add it to the **"always"** array.
 
 ### Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run the following commands in your terminal : 
 
-## Build
+```bash
+git clone git@github.com:demarbre1u/DailyQuests.git daily-quests
+cd daily-quests
+npm install
+ng serve -o
+```
+
+The app will automatically reload if you change any of the source files.
+
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
