@@ -33,6 +33,7 @@
 }
 
 #username {
+    max-width: 350px;
     background-color: transparent;
     color: #acf0ed;
     border: none;
