@@ -25,6 +25,12 @@
             "type": "wisdom"
         },
         {
+            "name": "The power within",
+            "description": "Meditate for 30 minutes",
+            "xp": 3, 
+            "type": "wisdom"
+        },
+        {
             "name": "Knowledge is a weapon",
             "description": "Read for 30 minutes",
             "xp": 3, 
@@ -34,7 +40,7 @@
             "name": "Keep talking",
             "description": "Learn a language for 15 minutes",
             "xp": 3,
-            "type": "wisdom"
+            "type": "intelligence"
         }
     ]
 }
