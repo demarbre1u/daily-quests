@@ -16,11 +16,16 @@ export class PlayerService {
     wisdom: 0
   }
 
+  private defaultUsername = 'Guest'
+
   private xpChangedSource = new Subject<any>()
   xpChanged$ = this.xpChangedSource.asObservable()
 
   private statsChangedSource = new Subject<any>()
   statsChanged$ = this.statsChangedSource.asObservable()
+
+  private usernameChangedSource = new Subject<string>()
+  usernameChanged$ = this.usernameChangedSource.asObservable()
 
   private xpTable = xpTable.xp_table
   private statsTable = statsTable.stats_table
@@ -67,7 +72,6 @@ export class PlayerService {
     }
 
     this.statsChangedSource.next(newStats)
-    console.log(newStats)
   }
 
   getXP()
@@ -96,5 +100,19 @@ export class PlayerService {
     stats[type] += xp
     localStorage.setItem('stats', JSON.stringify(stats))
     this.calculateStatsData()
+  }
+
+  saveUsername(newUsername)
+  {
+    newUsername = newUsername ? newUsername : this.defaultUsername
+    localStorage.setItem('username', JSON.stringify(newUsername))
+    this.usernameChangedSource.next(newUsername)
+  }
+
+  getUsername()
+  {
+    let username = JSON.parse(localStorage.getItem('username'))
+
+    return username ? username : this.defaultUsername
   }
 }

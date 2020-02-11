@@ -1,5 +1,5 @@
 <div id="navbar">
-    <div id="greeting">Welcome!</div>
+    <div id="greeting">Welcome, <input #username (change)="save()" (keyup)="resize()" type="text" id="username" value=""></div>
 
     <div id="nav-btns">
         <a routerLink="/home" routerLinkActive="active">Home</a>

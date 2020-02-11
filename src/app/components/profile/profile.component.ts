@@ -20,8 +20,6 @@ export class ProfileComponent implements OnInit {
 
     this.player.statsChanged$.subscribe(statsData => {
       this.currentStatsData = statsData
-
-      console.log(statsData)
     })
 
     this.player.calculateData()
