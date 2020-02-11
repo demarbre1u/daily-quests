@@ -1,46 +1,64 @@
 {
     "quests": [
         {
-            "name": "Daily exercise",
-            "description": "Do 25 push-ups", 
-            "xp": 3, 
-            "type": "strength"
+            "id":               1,
+            "name":             "Daily exercise",
+            "description":      "Do 25 push-ups", 
+            "xp":               3, 
+            "type":             "strength"
         }, 
         {
-            "name": "Daily exercise",
-            "description": "Do 25 crunches", 
-            "xp": 3,
-            "type": "strength"
+            "id":               2,
+            "name":             "Daily exercise",
+            "description":      "Do 25 crunches", 
+            "xp":               3,
+            "type":             "strength"
         }, 
         {
-            "name": "Daily exercise",
-            "description": "Do 25 squats", 
-            "xp": 3,
-            "type": "strength"
+            "id":               3,
+            "name":             "Daily exercise",
+            "description":      "Do 25 squats", 
+            "xp":               3,
+            "type":             "strength"
         }, 
         {
-            "name": "The pen is mightiest",
-            "description": "Write for 30 minutes",
-            "xp": 3, 
-            "type": "wisdom"
+            "id":               4,
+            "name":             "The pen is mightiest",
+            "description":      "Write for 30 minutes",
+            "xp":               3, 
+            "type":             "wisdom"
         },
         {
-            "name": "The power within",
-            "description": "Meditate for 30 minutes",
-            "xp": 3, 
-            "type": "wisdom"
+            "id":               5,
+            "name":             "The power within",
+            "description":      "Meditate for 30 minutes",
+            "xp":               3, 
+            "type":             "wisdom"
         },
         {
-            "name": "Knowledge is a weapon",
-            "description": "Read for 30 minutes",
-            "xp": 3, 
-            "type": "intelligence"
+            "id":               6,
+            "name":             "Knowledge is a weapon",
+            "description":      "Read for 30 minutes",
+            "xp":               3, 
+            "type":             "intelligence"
         },
         {
-            "name": "Keep talking",
-            "description": "Learn a language for 15 minutes",
-            "xp": 3,
-            "type": "intelligence"
+            "id":               7,
+            "name":             "Keep talking",
+            "description":      "Learn a language for 15 minutes",
+            "xp":               3,
+            "type":             "intelligence"
         }
-    ]
+    ], 
+    "days": {
+        "monday":       [1], 
+        "tuesday":      [2], 
+        "wednesday":    [3], 
+        "thursday":     [1], 
+        "friday":       [2], 
+        "saturday":     [3], 
+        "sunday":       [6],
+
+        "always":       [4, 5, 6, 7]
+    }
 }

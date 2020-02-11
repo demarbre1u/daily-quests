@@ -13,6 +13,7 @@ export class QuestsService {
 
   public static DAILY_QUEST_NUMBER = 3
   private quests = Quests.quests
+  private questsByDay = Quests.days
 
   constructor() 
   {
@@ -43,14 +44,34 @@ export class QuestsService {
   pickDailyQuests()
   {
     let pickedQuests = []
-    for(let i = 0; i < QuestsService.DAILY_QUEST_NUMBER; i++)
-    {
-      let randomIndex = Math.round(Math.random() * (this.quests.length - 1))
 
-      pickedQuests.push(this.quests[randomIndex])
+    // Picks one quest only available for the current day
+    let weekday = this.getWeekDay()
+    pickedQuests.push(this.pickQuest(weekday))
+    
+    // Fills the remaining quest slots with quests that are always available
+    for(let i = 1; i < QuestsService.DAILY_QUEST_NUMBER; i++)
+    {
+      pickedQuests.push(this.pickQuest('always'))
     }
     
     this.setDailyQuest(pickedQuests)
+  }
+
+  // Picks a random quest given a day
+  pickQuest(day)
+  {
+    let weekdayQuests = this.questsByDay[day]
+    let randomIndex = Math.round(Math.random() * (weekdayQuests.length - 1))
+    let questId = weekdayQuests[randomIndex]
+    let chosenQuest = this.quests.filter(e => e.id === questId)[0]
+
+    return chosenQuest
+  }
+
+  getWeekDay()
+  {
+    return (new Date().toLocaleDateString('en-US', { weekday: 'long' })).toLowerCase()
   }
 
   getDailyQuests()
