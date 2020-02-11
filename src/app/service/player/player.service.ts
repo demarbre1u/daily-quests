@@ -7,7 +7,7 @@ import * as statsTable from '../../../assets/data/stats_table.json';
 @Injectable({
   providedIn: 'root'
 })
-export class XpService {
+export class PlayerService {
 
   // The default stats if the player doesn't have any yet
   private defaultStatsObject = {

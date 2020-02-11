@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { XpService } from 'src/app/service/xp/xp.service';
+import { PlayerService } from 'src/app/service/player/player.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,19 +11,19 @@ export class ProfileComponent implements OnInit {
   private currentLevelData: {}
   private currentStatsData: {}
 
-  constructor(private xp: XpService) { }
+  constructor(private player: PlayerService) { }
 
   ngOnInit() {
-    this.xp.xpChanged$.subscribe(levelData => {
+    this.player.xpChanged$.subscribe(levelData => {
       this.currentLevelData = levelData
     })
 
-    this.xp.statsChanged$.subscribe(statsData => {
+    this.player.statsChanged$.subscribe(statsData => {
       this.currentStatsData = statsData
 
       console.log(statsData)
     })
 
-    this.xp.calculateData()
+    this.player.calculateData()
   }
 }

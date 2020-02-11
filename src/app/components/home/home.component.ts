@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { XpService } from '../../service/xp/xp.service.js';
+import { PlayerService } from '../../service/player/player.service.js';
 import { QuestsService } from 'src/app/service/quests/quests.service.js';
 
 @Component({
@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   private dailyQuests = []
 
-  constructor(private xp: XpService, private quests: QuestsService) {}
+  constructor(private player: PlayerService, private quests: QuestsService) {}
 
   ngOnInit() {
     // Listens to any change on the daily quests list in the Quest Service
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   // Validates a quest from the daily quests
   validateQuest(index)
   {
-    this.xp.addXP(this.dailyQuests[index])
+    this.player.addXP(this.dailyQuests[index])
 
     this.removeQuest(index)
   }
