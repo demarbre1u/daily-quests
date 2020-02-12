@@ -89,7 +89,7 @@ If you want a quest to always be available, add it to the **"always"** array.
 Run the following commands in your terminal : 
 
 ```bash
-git clone git@github.com:demarbre1u/DailyQuests.git daily-quests
+git clone git@github.com:demarbre1u/daily-quests.git daily-quests
 cd daily-quests
 npm install
 ng serve -o
