@@ -1,4 +1,4 @@
-# DailyQuests
+# Daily Quests
 
 ## Presentation
 
