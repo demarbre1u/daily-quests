@@ -1,0 +1,10 @@
+<div id="todolist-wrapper">
+    <p *ngFor="let task of list">
+        {{task.value}}
+    </p>
+
+    <form id="new-task" (submit)="addNewTask()">
+        <input #newTask placeholder="Task" type="text" name="" id="task-input">
+        <button type="submit">Add</button>
+    </form>
+</div>
