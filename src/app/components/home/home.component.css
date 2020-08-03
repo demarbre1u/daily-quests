@@ -15,7 +15,7 @@
         flex-direction: column;
         overflow-y: auto;
     }
-  }
+}
 
 #quests-wrapper .quest {
     position: relative;
