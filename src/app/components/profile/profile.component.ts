@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PlayerService } from 'src/app/service/player/player.service';
+import { QuestsService } from 'src/app/service/quests/quests.service';
 
 @Component({
   selector: 'app-profile',
@@ -11,7 +12,7 @@ export class ProfileComponent implements OnInit {
   private currentLevelData: {}
   private currentStatsData: {}
 
-  constructor(private player: PlayerService) { }
+  constructor(private player: PlayerService, private quests: QuestsService) { }
 
   ngOnInit() {
     this.player.xpChanged$.subscribe(levelData => {
@@ -23,5 +24,10 @@ export class ProfileComponent implements OnInit {
     })
 
     this.player.calculateData()
+  }
+
+  resetPlayerStats() {
+    this.player.resetPlayerStats()
+    this.quests.resetPlayerQuests()
   }
 }

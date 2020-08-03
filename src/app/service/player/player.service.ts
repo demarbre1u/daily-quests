@@ -115,4 +115,15 @@ export class PlayerService {
 
     return username ? username : this.defaultUsername
   }
+
+  resetPlayerStats() 
+  {
+    let playerXP = 0
+    let playerStats = this.defaultStatsObject
+
+    localStorage.setItem('xp', JSON.stringify(playerXP))
+    localStorage.setItem('stats', JSON.stringify(playerStats))
+
+    this.calculateData()
+  }
 }

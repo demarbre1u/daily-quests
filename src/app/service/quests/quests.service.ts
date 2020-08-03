@@ -120,4 +120,9 @@ export class QuestsService {
   {
     localStorage.setItem('last_update', JSON.stringify(date))
   }
+
+  resetPlayerQuests() 
+  {
+    this.pickDailyQuests()
+  }
 }

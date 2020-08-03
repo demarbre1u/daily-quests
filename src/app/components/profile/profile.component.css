@@ -106,3 +106,40 @@
 .wisdom-stats div {
     background-color: var(--wisdom-color);
 }
+
+#reset-btn {
+    cursor: pointer;
+    outline: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: 5px 5px 10px darkgrey;
+    border: 1px solid lightgrey;
+    border-radius: 50px;
+
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    width: 60px;
+    height: 60px;
+}
+
+#reset-btn #reset-icon  {
+    background-color: #706c61;
+    mask-image: url('../../../assets/img/icons/delete.svg');
+    -webkit-mask-image: url('../../../assets/img/icons/delete.svg');
+    mask-size: 40px;
+
+    margin: 5px;
+
+    width: 35px;
+    height: 35px;
+
+    min-width: 40px;
+    min-height: 40px;
+}
