@@ -9,14 +9,25 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1080px) {
+    #quests-wrapper {
+        height: inherit;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+  }
+
 #quests-wrapper .quest {
     position: relative;
     min-width: 300px;
+    min-height: 170px;
     margin: 20px;
     padding: 10px;
 
     border-radius: 5px;
     box-shadow: 5px 5px 10px darkgrey;
+
+    display: block;
 
     overflow: hidden;
 }
@@ -102,7 +113,7 @@
     border: 1px solid lightgrey;
     border-radius: 50px;
 
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     right: 30px;
 
