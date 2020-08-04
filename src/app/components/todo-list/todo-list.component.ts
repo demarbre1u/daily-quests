@@ -16,10 +16,7 @@ export class TodoListComponent implements OnInit {
   constructor(private todolist: TodoListService) { }
 
   ngOnInit() {
-    this.todolist.listChanged$.subscribe(todolist => {
-      this.list = todolist
-      console.log(todolist)
-    })
+    this.todolist.listChanged$.subscribe(todolist => this.list = todolist)
 
     this.todolist.setTodoList()
   }
@@ -27,15 +24,23 @@ export class TodoListComponent implements OnInit {
   addNewTask() 
   {
     let value = this.newTask.nativeElement.value
-
     if(!value)
       return false
 
     this.todolist.addNewTask(value)
-
     this.newTask.nativeElement.value = ''
 
     return false
   }
 
+  checkboxClicked(event, id) 
+  {
+    let isChecked = event.target.checked
+    
+    this.todolist.changeTaskState(id, isChecked)
+  }
+
+  deleteTask(id) {
+    this.todolist.deleteTask(id)
+  }
 }
