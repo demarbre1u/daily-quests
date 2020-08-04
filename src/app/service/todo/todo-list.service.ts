@@ -75,4 +75,11 @@ export class TodoListService {
     this.saveTodoList(newList)
     this.listChangedSource.next(newList)
   }
+
+  resetTodoList()
+  {
+    let emptyList = []
+    this.saveTodoList(emptyList)
+    this.listChangedSource.next(emptyList)
+  }
 }

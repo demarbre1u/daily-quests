@@ -72,4 +72,9 @@ export class AchievementService {
 
     this.setAchievements(achievements)
   }
+
+  resetAchievements() 
+  {
+    this.setAchievements( this.defaultAchievement )
+  }
 }
