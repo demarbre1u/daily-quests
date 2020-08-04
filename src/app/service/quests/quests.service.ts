@@ -3,6 +3,7 @@ import { Subject }    from 'rxjs';
 
 import * as Quests from '../../../assets/data/quests.json';
 import { PlayerService } from '../player/player.service.js';
+import { AchievementService } from '../achievement/achievement.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class QuestsService {
   private quests = Quests.quests
   private questsByDay = Quests.days
 
-  constructor(private player: PlayerService) 
+  constructor(private player: PlayerService, private achievements: AchievementService) 
   {
     this.checkDailyUpdate()
 
@@ -44,6 +45,10 @@ export class QuestsService {
   // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
   pickDailyQuests()
   {
+    let dailyQuests = this.getDailyQuests()
+    let failedQuests = dailyQuests.length
+    this.achievements.addQuestFailed(failedQuests)
+
     let pickedQuests = []
 
     // Picks one quest only available for the current day
@@ -100,9 +105,34 @@ export class QuestsService {
   }
 
   // Removes a quest from the daily quests
-  removeQuest(index)
+  cancelQuest(index)
   {
     let dailyQuests = this.getDailyQuests()
+
+    dailyQuests = dailyQuests.filter((e, i) => i !== index)
+
+    this.setDailyQuest(dailyQuests)
+  }
+
+  validateQuest(index)
+  {
+    let dailyQuests = this.getDailyQuests()
+
+    let validatedQuest =  dailyQuests.filter((e, i) => i === index)[0]
+    let questType = validatedQuest.type
+    switch(questType) 
+    {
+      case 'strength':
+        this.achievements.addStrengthQuestCleared(1)
+        break;
+      case 'intelligence':
+        this.achievements.addIntelligenceQuestCleared(1)
+        break;
+      case 'wisdom':
+        this.achievements.addWisdomQuestCleared(1)
+        break;
+    }
+    this.achievements.addQuestCleared(1)
 
     dailyQuests = dailyQuests.filter((e, i) => i !== index)
 

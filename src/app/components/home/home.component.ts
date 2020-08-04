@@ -27,19 +27,13 @@ export class HomeComponent implements OnInit {
   {
     this.player.addXP(this.dailyQuests[index])
 
-    this.removeQuest(index)
+    this.quests.validateQuest(index)
   }
 
   // Cancel a quest from the daily quests
   cancelQuest(index)
   {
-    this.removeQuest(index)
-  }
-
-  // Removes a quest from the daily quests
-  removeQuest(index)
-  {
-    this.quests.removeQuest(index)
+    this.quests.cancelQuest(index)
   }
 
   reloadDailyQuests()

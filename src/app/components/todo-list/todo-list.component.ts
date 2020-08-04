@@ -15,7 +15,8 @@ export class TodoListComponent implements OnInit {
 
   constructor(private todolist: TodoListService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.todolist.listChanged$.subscribe(todolist => this.list = todolist)
 
     this.todolist.setTodoList()
@@ -40,7 +41,8 @@ export class TodoListComponent implements OnInit {
     this.todolist.changeTaskState(id, isChecked)
   }
 
-  deleteTask(id) {
+  deleteTask(id) 
+  {
     this.todolist.deleteTask(id)
   }
 }
