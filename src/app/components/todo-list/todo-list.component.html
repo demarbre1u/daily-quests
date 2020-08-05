@@ -1,9 +1,12 @@
 <div id="todolist-wrapper">
-    <p *ngFor="let task of list">
-        <button (click)="deleteTask(task.id)">Delete</button>
-        <input [checked]="task.done" type="checkbox" name="Done" (change)="checkboxClicked($event, task.id)">
-        <span [class.task-done]="task.done">{{task.value}}</span>
-    </p>
+    <div id="todolist-items">
+        <p class="todolist-task" *ngFor="let task of list">
+            <button (click)="deleteTask(task.id)">Delete</button>
+            <input [checked]="task.done" type="checkbox" name="Done" (change)="checkboxClicked($event, task.id)">
+            <span [class.task-done]="task.done">{{task.value}}</span>
+        </p>
+    </div>
+    
 
     <form id="new-task" (submit)="addNewTask()">
         <input #newTask placeholder="Task" type="text" name="" id="task-input">

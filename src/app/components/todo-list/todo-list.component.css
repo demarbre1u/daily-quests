@@ -1,3 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+#todolist-wrapper {
+    margin: auto;
+    margin-top: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    position: absolute;
+    width: 450px;
+    background: rgba(255,255,255,0.9);
+    margin: -275px -225px;
+    margin-bottom: 50px;
+    left: 50%;
+    top: 38%;
+    box-shadow: 2px 2px 7px 0px #888;
+}
+
+#todolist-wrapper:before {
+    content: '';
+    position: absolute;
+    left: 70px;
+    height: 100%;
+    width: 2px;
+    background: #778;
+    /*background: rgba(255,0,0,0.4);*/
+}
+
+#todolist-items {
+    width: inherit;
+
+    margin-top: 40px;
+    height: calc(100% - 40px);
+    width: 100%;
+    background-image: repeating-linear-gradient(white 0px, white 23px, steelblue 24px);
+}
+
+.todolist-task {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    font-family: 'Indie Flower';
+}
+
 .task-done {
     text-decoration: line-through;
 }
