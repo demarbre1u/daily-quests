@@ -1,4 +1,12 @@
 @import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+#new-task {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 25px;
+}
+
 #todolist-wrapper {
     margin: auto;
     margin-top: 50px;
@@ -8,14 +16,13 @@
     justify-content: center;
     align-items: center;
 
-
     position: absolute;
     width: 450px;
     background: rgba(255,255,255,0.9);
     margin: -275px -225px;
     margin-bottom: 50px;
     left: 50%;
-    top: 38%;
+    top: 42%;
     box-shadow: 2px 2px 7px 0px #888;
 }
 
@@ -32,13 +39,17 @@
 #todolist-items {
     width: inherit;
 
-    margin-top: 40px;
+    margin: 20px 0px;
     height: calc(100% - 40px);
     width: 100%;
-    background-image: repeating-linear-gradient(white 0px, white 23px, steelblue 24px);
+    background-image: repeating-linear-gradient(white 0px, white 33px, steelblue 34px);
 }
 
 .todolist-task {
+    font-size: 25px;
+    line-height: 1.36;
+    word-break: break-word;
+
     margin: 0;
     padding: 0;
 
@@ -49,6 +60,89 @@
     font-family: 'Indie Flower';
 }
 
+.todolist-task > span {
+    margin: 0px 15px;
+}
+
+
 .task-done {
     text-decoration: line-through;
+}
+
+.todolist-delete-btn {
+    background: none;
+    border: none;
+
+    min-width: 28px;
+    min-height: 28px;
+
+    margin: 0px 3px;
+
+    background: url('../../../assets/img/icons/delete.svg');
+    background-size: 28px;
+
+    outline: none;
+}
+
+
+/* Checkbox */
+
+.todolist-task-checkbox {
+	font-family: Verdana;
+  	display: block;
+  	position: relative;
+  	padding-left: 35px;
+  	margin-bottom: 30px;
+  	cursor: pointer;
+  	font-size: 22px;
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	-ms-user-select: none;
+  	user-select: none;
+}
+
+.todolist-task-checkbox input {
+	opacity: 0.9;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.todolist-task-checkbox .checkmark {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	height: 25px;
+  	width: 25px;
+  	border: 2px dashed #858585;
+  	border-radius: 5px;
+}
+
+.todolist-task-checkbox input:checked ~ .checkmark {
+  	border: 2px solid #373737;
+  	background-color: #373737;
+}
+
+.todolist-task-checkbox .checkmark:after {
+  	content: "";
+  	position: absolute;
+  	display: none;
+}	
+
+.todolist-task-checkbox input:checked ~ .checkmark:after {
+  	display: block;
+}
+
+.todolist-task-checkbox .checkmark:after {
+  	left: 9px;
+  	top: 5px;
+  	width: 5px;
+  	height: 10px;
+  	border: solid white;
+  	border-width: 0 3px 3px 0;
+  	-webkit-transform: rotate(45deg);
+  	-ms-transform: rotate(45deg);
+  	transform: rotate(45deg);
 }
