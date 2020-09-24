@@ -4,7 +4,7 @@
     overflow-x: auto;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -142,4 +142,19 @@
 
     min-width: 40px;
     min-height: 40px;
+}
+
+.quest-pie-chart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quest-pie-chart canvas {
+    width: 400px;
+}
+
+#player-stats-wrapper > h2 {
+    text-align: center;
 }
