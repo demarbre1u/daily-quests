@@ -7,6 +7,17 @@
     margin-top: 25px;
 }
 
+#task-input {
+    outline: 1px solid lightgray;
+    transition: outline 1s;
+}    
+
+#task-input:focus {
+
+    outline: 1px solid black;
+    transition: outline-color 1s;
+}
+
 #todolist-wrapper {
     margin: auto;
     margin-top: 50px;
@@ -22,7 +33,7 @@
     margin: -275px -225px;
     margin-bottom: 50px;
     left: 50%;
-    top: 42%;
+    top: 425px;
     box-shadow: 2px 2px 7px 0px #888;
 }
 
