@@ -45,7 +45,7 @@ export class QuestsService {
   // Picks DAILY_QUEST_NUMBER quests and add it to the daily quests
   pickDailyQuests()
   {
-    let dailyQuests = this.getDailyQuests()
+    let dailyQuests = this.getDailyQuests() ? this.getDailyQuests() : []
     let failedQuests = dailyQuests.length
     this.achievements.addQuestFailed(failedQuests)
 
