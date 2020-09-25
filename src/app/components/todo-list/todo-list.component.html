@@ -4,7 +4,7 @@
 </form>
 
 <div id="todolist-wrapper">
-    <div id="todolist-items">
+    <div id="todolist-items" *ngIf="list.length !== 0">
         <p class="todolist-task" *ngFor="let task of list">
             <label class="todolist-task-checkbox">
                 <input type="checkbox" [checked]="task.done" name="Done" (change)="checkboxClicked($event, task.id)">
