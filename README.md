@@ -18,9 +18,7 @@ Some quests can only appear on certain days, so you don't have to do your legs e
 
 There are still some planned features to help you organize your day : 
 
- - A TODO list you can manage by yourself
  - Push notifications to keep you informed if you're running out of time
- - A stats screen to keep track of your achievments
  - The possibility to switch your theme / the language of the app to have an UI that fits you
 
 ### How to add / remove quests
