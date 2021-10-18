@@ -4,6 +4,12 @@
 
 ### Introduction
 
+<p align="center">
+  <img src="https://github.com/demarbre1u/daily-quests/blob/master/screenshots/screen01.png?raw=true" width="400" title="Screen 1" alt="Screen 1">
+  <img src="https://github.com/demarbre1u/daily-quests/blob/master/screenshots/screen02.png?raw=true" width="400" title="Screen 2" alt="Screen 2">
+  <img src="https://github.com/demarbre1u/daily-quests/blob/master/screenshots/screen03.png?raw=true" width="800" title="Screen 3" alt="Screen 3">
+</p>
+
 This project allows you to gamify your daily tasks and goals.
 
 Every day, this web app picks at random a set of quests that you have to complete within the day.
